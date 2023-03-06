@@ -1,6 +1,7 @@
 const containerDom = document.getElementById("grid_container");
 const gameModeDom = document.getElementById("game_mode");
 const buttonDom = document.getElementById("action");
+let numberBlackList = [];
 
 
 function setDiffcult(mode){
@@ -24,7 +25,7 @@ function setDiffcult(mode){
             squareDom.classList.add('pippo');
             containerDom.append(squareDom);
 
-            bombGenerator ();
+            bombGenerator (numberBlackList,1 ,100);
 
             squareDom.addEventListener('click',
             
@@ -66,19 +67,26 @@ buttonDom.addEventListener('click',
 
 
 
-function bombGenerator (){
+function bombGenerator (numberBlackList, min, max){
 
-    let bombs = [];
-    
-    let bomb = Math.floor(Math.random() * 100) + 1;
-    
-    bombs.push = bomb;
+    let validNumber = false;
+    let randomNumberBomb;
 
-    console.log(bombs);
-
+    while (!validNumber) {
+        randomNumberBomb = generateRandomnumberBombs(min, max);
+        if (!numberBlackList.includes(randomNumberBomb)){
+            validNumber = true;
+        }
+    }
+   
     
 }
 
+
+function generateRandomnumberBombs(min, max){
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomNumber;
+}
 
 
 
