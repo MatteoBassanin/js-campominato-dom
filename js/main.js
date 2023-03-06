@@ -48,6 +48,7 @@ buttonDom.addEventListener('click',
     function(){
         
         setDiffcult(gameModeDom.value);
+        containerDom.classList.remove('no_click'); 
         for(let i = 0 ; i < 16 ; i++){             
             const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
             numberBlackList.push(validNumberBomb);
