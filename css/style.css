@@ -46,3 +46,8 @@
 .bomb{
     background-color: red;
 }
+
+
+.no_click{
+    pointer-events:none;
+}

@@ -26,7 +26,9 @@ function setDiffcult(mode){
                     console.log(i + 1);
                     if (numberBlackList.includes(i + 1)){
                         this.classList.add('bomb');
-                        }
+                        alert("Hai perso");
+                        containerDom.classList.add('no_click');                     
+                      }
                 }       
             );                  
             
