@@ -24,7 +24,7 @@ function setDiffcult(mode){
                 function(){
                     this.classList.toggle('selected');
                     console.log(i + 1);
-                    if (this == numberBlackList.length){
+                    if (numberBlackList.includes(i + 1)){
                         this.classList.add('bomb');
                         }
                 }       
