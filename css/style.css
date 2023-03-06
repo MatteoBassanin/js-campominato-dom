@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#grid_container{
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square_easy{
+    width: calc(500px / 10);
+    height: calc(500px / 10);
+    border: 1px solid black;
+}
+
+.square_hard{
+    width: calc(500px / 9);
+    height: calc(500px / 9);
+    border: 1px solid black;
+}
+
+.square_mamma_mia{
+    width: calc(500px / 7);
+    height: calc(500px / 7);
+    border: 1px solid black;
+}
+
+
+.selected{
+    background-color: aquamarine;
+}
+
+.d_none{
+    display: none;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+
+.bomb{
+    background-color: red;
+}
