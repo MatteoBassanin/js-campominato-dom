@@ -25,7 +25,14 @@ function setDiffcult(mode){
             squareDom.classList.add('pippo');
             containerDom.append(squareDom);
 
-            bombGenerator (numberBlackList,1 ,100);
+            
+            for(let i = 0 ; i < 16 ; i++){
+                
+                const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
+                numberBlackList.push(validNumberBomb);
+                console.log(numberBlackList)
+
+            }
 
             squareDom.addEventListener('click',
             
@@ -78,7 +85,8 @@ function bombGenerator (numberBlackList, min, max){
             validNumber = true;
         }
     }
-   
+    numberBlackList.push(randomNumberBomb);
+    return randomNumberBomb;
     
 }
 
