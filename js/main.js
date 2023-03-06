@@ -4,6 +4,7 @@ const buttonDom = document.getElementById("action");
 let numberBlackList = [];
 let totalSquare;
 
+
 let score = 0;
 
 function setDiffcult(mode){
@@ -36,7 +37,8 @@ function setDiffcult(mode){
                         this.classList.add('bomb');
                         alert("Hai perso");
                         alert("Il tuo punteggio è " + score);
-                        containerDom.classList.add('no_click');                     
+                        containerDom.classList.add('no_click');
+                        validNumberBomb.toggle('bomb');                    
                       }
                       else{
                         score++;
