@@ -61,7 +61,7 @@ buttonDom.addEventListener('click',
         for(let i = 0 ; i < 16 ; i++){             
             const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
             numberBlackList.push(validNumberBomb);
-            console.log(numberBlackList);
+            console.log(validNumberBomb);
 
         }
     });
