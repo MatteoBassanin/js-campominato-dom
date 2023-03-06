@@ -8,32 +8,25 @@ let totalSquare;
 function setDiffcult(mode){
     containerDom.innerHTML = "";
 
-
-
-
-
     if (mode == "easy"){totalSquare = 100};
     if (mode == "hard"){totalSquare = 81};
     if (mode == "mamma_mia"){totalSquare = 49};
-
 
     for (let i = 0; i < totalSquare ; i++){
 
             const squareDom = document.createElement('div');
             squareDom.innerHtml = i;
             squareDom.classList.add('square_' + mode);
-            containerDom.append(squareDom);
-
-            
-           
+            containerDom.append(squareDom);          
 
             squareDom.addEventListener('click',
-            
-
-            
+                       
                 function(){
                     this.classList.toggle('selected');
                     console.log(i + 1);
+                    if (this == numberBlackList.length){
+                        this.classList.add('bomb');
+                        }
                 }       
             );                  
             
@@ -42,16 +35,11 @@ function setDiffcult(mode){
                     squareDom.classList.toggle('d_none');
                     squareDom.classList.remove('selected');
                 }  
-            );
-            
-
-            
+            );                      
   
         };
        
 }
-
-
 
 
 buttonDom.addEventListener('click',
@@ -62,15 +50,10 @@ buttonDom.addEventListener('click',
             const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
             numberBlackList.push(validNumberBomb);
             console.log(validNumberBomb);
-
+            console.log(numberBlackList);
+            
         }
     });
-
-// generare 16 bombe
-// non posso esserci più di 1 bomba nella stessa casella
-
-
-
 
 function bombGenerator (numberBlackList, min, max){
 
