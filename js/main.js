@@ -4,6 +4,7 @@ const buttonDom = document.getElementById("action");
 let numberBlackList = [];
 let totalSquare;
 
+let score = 0;
 
 function setDiffcult(mode){
     containerDom.innerHTML = "";
@@ -27,18 +28,18 @@ function setDiffcult(mode){
                     this.classList.toggle('selected');
                     console.log(i + 1);
 
-                    let x = 0;
-                    while(x == !numberBlackList.includes(i + 1) ){
-                        x++;
-                        console.log(x);
-                    }
+                    
 
 
                     if (numberBlackList.includes(i + 1)){
                         this.classList.add('bomb');
                         alert("Hai perso");
-                        alert("Il tuo punteggio è " + x);
+                        alert("Il tuo punteggio è " + score);
                         containerDom.classList.add('no_click');                     
+                      }
+                      else{
+                        score++;
+                        console.log("il tuo punteggio è " + score);
                       }
                 }       
             );                  
@@ -91,7 +92,6 @@ function generateRandomnumberBombs(min, max){
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     return randomNumber;
 }
-
 
 
 
