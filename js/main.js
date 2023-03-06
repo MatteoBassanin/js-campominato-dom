@@ -7,6 +7,8 @@ let totalSquare;
 
 function setDiffcult(mode){
     containerDom.innerHTML = "";
+    numberBlackList = [];
+
 
     if (mode == "easy"){totalSquare = 100};
     if (mode == "hard"){totalSquare = 81};
@@ -24,9 +26,18 @@ function setDiffcult(mode){
                 function(){
                     this.classList.toggle('selected');
                     console.log(i + 1);
+
+                    let x = 0;
+                    while(x == !numberBlackList.includes(i + 1) ){
+                        x++;
+                        console.log(x);
+                    }
+
+
                     if (numberBlackList.includes(i + 1)){
                         this.classList.add('bomb');
                         alert("Hai perso");
+                        alert("Il tuo punteggio è " + x);
                         containerDom.classList.add('no_click');                     
                       }
                 }       
@@ -48,6 +59,7 @@ buttonDom.addEventListener('click',
     function(){
         
         setDiffcult(gameModeDom.value);
+        
         containerDom.classList.remove('no_click'); 
         for(let i = 0 ; i < 16 ; i++){             
             const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
