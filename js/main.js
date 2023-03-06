@@ -9,6 +9,7 @@ let score = 0;
 function setDiffcult(mode){
     containerDom.innerHTML = "";
     numberBlackList = [];
+    score = 0 ;
 
 
     if (mode == "easy"){totalSquare = 100};
