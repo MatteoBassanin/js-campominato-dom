@@ -2,6 +2,7 @@ const containerDom = document.getElementById("grid_container");
 const gameModeDom = document.getElementById("game_mode");
 const buttonDom = document.getElementById("action");
 let numberBlackList = [];
+let totalSquare;
 
 
 function setDiffcult(mode){
@@ -9,7 +10,6 @@ function setDiffcult(mode){
 
 
 
-    let totalSquare;
 
 
     if (mode == "easy"){totalSquare = 100};
@@ -22,17 +22,10 @@ function setDiffcult(mode){
             const squareDom = document.createElement('div');
             squareDom.innerHtml = i;
             squareDom.classList.add('square_' + mode);
-            squareDom.classList.add('pippo');
             containerDom.append(squareDom);
 
             
-            for(let i = 0 ; i < 16 ; i++){
-                
-                const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
-                numberBlackList.push(validNumberBomb);
-                console.log(numberBlackList)
-
-            }
+           
 
             squareDom.addEventListener('click',
             
@@ -65,7 +58,12 @@ buttonDom.addEventListener('click',
     function(){
         
         setDiffcult(gameModeDom.value);
-    
+        for(let i = 0 ; i < 16 ; i++){             
+            const validNumberBomb = bombGenerator (numberBlackList,1 ,totalSquare);
+            numberBlackList.push(validNumberBomb);
+            console.log(numberBlackList);
+
+        }
     });
 
 // generare 16 bombe
@@ -85,7 +83,7 @@ function bombGenerator (numberBlackList, min, max){
             validNumber = true;
         }
     }
-    numberBlackList.push(randomNumberBomb);
+
     return randomNumberBomb;
     
 }
